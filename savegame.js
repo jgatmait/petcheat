@@ -67,6 +67,27 @@ function downloadSave() {
     a.click();
 }
 
+// =============================
+// RESET GAME
+// =============================
+function resetSave() {
+    if (!confirm("Are you sure you want to reset your pet? All progress will be lost.")) {
+        return;
+    }
+
+    // Default values
+    coins = 50;
+    happiness = 50;
+
+    // Clear storage
+    localStorage.removeItem("coins");
+    localStorage.removeItem("happy");
+
+    updateUI();
+    alert("Game has been reset!");
+}
+
+
 function loadSave() {
     const input = prompt("Paste your save file content:");
 
