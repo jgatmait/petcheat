@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetCheat HackIt</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Landing page styles */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #ffe4f1, #ffd5eb);
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        header {
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #6d6d6d;
+            margin-bottom: 30px;
+        }
+
+        .pet-img {
+            width: 200px;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            margin: 10px;
+            background: #d63384;
+            color: #fff;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(214, 51, 132, 0.4);
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(214, 51, 132, 0.6);
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #6d6d6d;
+        }
+
+        .footer-line {
+            width: 60%;
+            margin: 20px auto;
+            height: 1px;
+            background: #e5a3c3;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🐾 PetCheat HackIt</h1>
+    <p class="subtitle">A cute but vulnerable web application for IT security students</p>
+</header>
+
+<img src="pet.png" alt="pet" class="pet-img">
+
+<div class="btn-container">
+    <a class="btn" href="game.html">Start Game</a>
+    <a class="btn" href="instructions.html">View Objectives</a>
+</div>
+
+<footer>
+    <div class="footer-line"></div>
+    © 2025 PetCheat HackIt — Built for educational penetration testing  
+</footer>
+
+</body>
+</html>
