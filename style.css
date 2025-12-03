@@ -1,0 +1,55 @@
+body {
+    background: #ffe9f3;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #d63384;
+}
+
+.pet-container {
+    margin: 20px auto;
+}
+
+.pet-img {
+    width: 180px;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #d63384;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.item {
+    border: 2px solid #ffc0d6;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 320px;
+    background: #fff;
+}
+
+.results-box {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff;
+    min-height: 40px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

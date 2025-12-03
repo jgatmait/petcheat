@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetCheat Lite</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- TODO: remove admin panel before final release: admin.html -->
+</head>
+<body>
+
+    <h1>🐾 PetCheat Lite</h1>
+
+    <div class="pet-container">
+        <img src="pet.png" alt="pet" class="pet-img">
+    </div>
+
+    <p><strong>Coins:</strong> <span id="coins">0</span></p>
+    <button onclick="earnCoins()">Play Mini-Game (+1 coin)</button>
+
+    <p><strong>Happiness:</strong> <span id="happy">50</span></p>
+    <button onclick="petHappy()">Pet Your Pet (+1 happiness)</button>
+
+    <br><br>
+    <a class="btn" href="shop.html">Go to Shop</a>
+
+    <br><br>
+    <button onclick="downloadSave()">Download Save</button>
+    <button onclick="loadSave()">Load Save</button>
+
+    <script src="savegame.js"></script>
+</body>
+</html>
+

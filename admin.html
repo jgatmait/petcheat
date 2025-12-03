@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetCheat Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>⚙️ Admin Panel – Internal Use Only</h1>
+<p>This page is supposed to be restricted, but… it isn’t.</p>
+
+<p><strong>Current coins:</strong> <span id="coins">0</span></p>
+<p><strong>Current happiness:</strong> <span id="happy">0</span></p>
+
+<button onclick="giveRiches()">Give 10,000 coins</button>
+<button onclick="maxHappy()">Set happiness to 999</button>
+
+<br><br>
+<a href="index.html" class="btn">Back to Pet</a>
+
+<script src="savegame.js"></script>
+<script>
+    // No authentication check at all → A01 Broken Access Control
+    function giveRiches() {
+        coins += 10000;
+        localStorage.setItem("coins", coins);
+        updateUI();
+        alert("Admin: granted 10,000 coins.");
+    }
+
+    function maxHappy() {
+        happiness = 999;
+        localStorage.setItem("happy", happiness);
+        updateUI();
+        alert("Admin: max happiness set.");
+    }
+</script>
+</body>
+</html>
+
