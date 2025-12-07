@@ -50,15 +50,29 @@ room7.html?key=haxx0r
     } else {
         document.getElementById("content").style.display = "block";
 
-        // Only detect LOVE added inside magic-zone, not the whole page
+        // Capture ALL text that originally existed on the page
+        const originalText = document.body.innerText;
+
         setInterval(() => {
-            const zone = document.getElementById("magic-zone");
-            if (zone.innerText.includes("LOVE")) {
-                document.getElementById("nextClue").style.display = "block";
+            // Find ALL elements on the page
+            const all = document.querySelectorAll("*");
+
+            for (let el of all) {
+                const txt = el.innerText.trim();
+
+                // Must contain LOVE
+                if (txt === "LOVE") {
+                    // But must NOT be part of the original text
+                    if (!originalText.includes("LOVE")) {
+                        document.getElementById("nextClue").style.display = "block";
+                        return;
+                    }
+                }
             }
-        }, 1000);
+        }, 800);
     }
 </script>
+
 
 
 </body>
