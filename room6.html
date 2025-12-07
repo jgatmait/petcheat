@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room 6 – Show Me LOVE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Chapter 6 – Show Me Some LOVE</h1>
+<p class="subtitle">
+    Your pet feels lonely. The next shard responds to a very specific word…
+</p>
+
+<img src="res/pet_stage4.png" alt="Adult Blob" class="pet-img">
+
+<div id="locked" class="card" style="display:none">
+    <p class="locked">
+        This page is locked. Did you come here with the correct URL parameter?
+        
+    </p>
+</div>
+
+<div id="content" class="card" style="display:none">
+    <p>
+        “I think the shard reacts to something written on the page itself,” your pet says.
+        “Not a normal button… something you add yourself.”
+    </p>
+    <p>
+        <em>Hint: Try adding a new element to the page using DevTools or the JavaScript console.
+        The magic word is <strong>LOVE</strong> (all caps).</em>
+    </p>
+
+    <div id="nextClue" style="display:none; margin-top:15px;">
+        <p><strong>The shard vibrates and reveals the door:</strong></p>
+        <pre>
+room7.html?key=haxx0r
+        </pre>
+    </div>
+</div>
+
+<a class="btn" href="index.html">Back Home</a>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const door = params.get("door");
+
+    if (door !== "domMaster") {
+        document.getElementById("locked").style.display = "block";
+    } else {
+        document.getElementById("content").style.display = "block";
+
+        // Poll DOM for the word LOVE
+        setInterval(() => {
+            if (document.body.innerText.includes("LOVE")) {
+                document.getElementById("nextClue").style.display = "block";
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
