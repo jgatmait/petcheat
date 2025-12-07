@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room 2 – Coins of Growth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Chapter 2 – Coins of Growth</h1>
+<p class="subtitle">
+    Your pet needs 500 coins to grow… but you only have a few. Or do you?
+</p>
+
+<img src="res/pet_stage2.png" alt="Child Blob" class="pet-img">
+
+<div id="locked" class="card" style="display:none">
+    <p class="locked">
+        This page is locked. Did you come here with the correct URL parameter?
+        (Example: <code>room2.html?key=babyBlob</code>)
+    </p>
+</div>
+
+<div id="content" class="card" style="display:none">
+    <p>
+        “I need at least <strong>500 coins</strong> to hold the next evolution shard,” your pet says.
+    </p>
+    <p>Current coins (read from <code>localStorage</code>): <strong id="coinsValue"></strong></p>
+
+    <p>
+        You don’t see any way to earn that many coins fairly here. Maybe the browser is already
+        storing the value somewhere?
+    </p>
+    <p><em>Hint: Application tab → Local Storage, or DevTools console.</em></p>
+
+    <div id="nextClue" style="display:none; margin-top:15px;">
+        <p><strong>The shard glows and reveals the next path:</strong></p>
+        <pre>
+room3.html?xssKey=bl0b1337
+        </pre>
+    </div>
+</div>
+
+<a class="btn" href="index.html">Back Home</a>
+
+<script>
+    // Check query param
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("key");
+
+    const lockedBox = document.getElementById("locked");
+    const contentBox = document.getElementById("content");
+
+    if (key !== "babyBlob") {
+        lockedBox.style.display = "block";
+    } else {
+        contentBox.style.display = "block";
+
+        // Read coins from localStorage, default to 3
+        let coins = parseInt(localStorage.getItem("coins") || "3", 10);
+        document.getElementById("coinsValue").innerText = coins;
+
+        // If hacked to >= 500, reveal next clue
+        if (coins >= 500) {
+            document.getElementById("nextClue").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
