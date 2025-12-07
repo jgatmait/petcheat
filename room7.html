@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room 7 – The Final Check</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Chapter 7 – The Final Gate</h1>
+<p class="subtitle">
+    One last gate stands in front of your pet’s final evolution.
+</p>
+
+<img src="res/pet_stage4.png" alt="Adult Blob" class="pet-img">
+
+<div id="locked" class="card" style="display:none">
+    <p class="locked">
+        This page is locked. Did you come here with the correct URL parameter?
+        (Example: <code>room7.html?key=haxx0r</code>)
+    </p>
+</div>
+
+<div id="content" class="card" style="display:none">
+    <p>
+        “The final shard only opens if my happiness is above <strong>80</strong>,” your pet says.
+        “But this button barely increases it…”
+    </p>
+
+    <p>Current happiness: <strong id="happyValue"></strong></p>
+    <button class="btn" onclick="cheerUp()">Cheer Up (+1)</button>
+
+    <div id="message" style="margin-top:10px;"></div>
+
+    <div id="nextClue" style="display:none; margin-top:15px;">
+        <p><strong>The gate opens!</strong></p>
+        <pre>
+final_evolution.html?final=blobQueen
+        </pre>
+    </div>
+
+    <p><em>Hint: All this logic is in JavaScript. Can you override it in the console?</em></p>
+</div>
+
+<a class="btn" href="index.html">Back Home</a>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("key");
+
+    if (key !== "haxx0r") {
+        document.getElementById("locked").style.display = "block";
+    } else {
+        document.getElementById("content").style.display = "block";
+    }
+
+    // Expose global variable and function intentionally
+    let happiness = 20;
+
+    function updateDisplay() {
+        document.getElementById("happyValue").innerText = happiness;
+        if (happiness > 80) {
+            document.getElementById("message").innerText = "You feel ready!";
+            document.getElementById("nextClue").style.display = "block";
+        } else {
+            document.getElementById("message").innerText = "Still not happy enough…";
+        }
+    }
+
+    function cheerUp() {
+        happiness++;
+        updateDisplay();
+    }
+
+    // Initial display
+    updateDisplay();
+
+    // Students can do in console:
+    // happiness = 999; updateDisplay();
+    // or directly: document.getElementById("nextClue").style.display = "block";
+</script>
+
+</body>
+</html>
